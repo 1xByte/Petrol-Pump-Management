@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="eng" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User LogIn</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" />
+    <style>
+  form {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+  .btn {
+    margin-top: 20px;
+  }
+
+  .alert {
+    margin-top: 20px;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+  }
+
+  .alert-success {
+    background-color: green;
+  }
+
+  .alert-danger {
+    background-color: red;
+  }
+</style>
+</head>
+<body>
+ <div class="container d-flex justify-content-center align-items-center" style="height: 100vh">
+    <form th:action="@{userLogin}" th:object="${login}" method="post">
+  <div class="form-group">
+    <label for="adminMail">User Email:</label>
+    <input type="email" class="form-control" id="userMail" field="*{userEmail}" name="userEmail" placeholder="Enter admin email">
+  </div>
+  <div class="form-group">
+    <label for="adminPass">Password:</label>
+    <input type="password" class="form-control" id="userPass" th:field="*{userPass}" placeholder="Enter password">
+  </div>
+  <button type="submit" class="btn btn-primary" >LogIn</button>
+  <p th:text="${loginn}">
+</form>
+<br>
+<label for="signup">Create Account</label>
+<a class="btn btn-primary" href="userSignup" role="button">Sign Up</a>
+
+</div>
+
+</body>
+</html>

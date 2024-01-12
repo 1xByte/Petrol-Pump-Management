@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="eng" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/UserDashboard">MyApp</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="btn btn-outline-success my-2 my-sm-0" href="/order">New Order</a>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-success my-2 my-sm-0" href="/UserDashboard">Dashboard</a>
+          </li>
+         
+          <li class="nav-item">
+            <a class="btn btn-outline-success my-2 my-sm-0" href="/logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <br>
+  <br>
+<form th:action="@{/order}" th:object="${orderDto}" method="post">
+  <div class="form-group">
+    <label for="fuelName" style="color: green;">Fuel Name</label>
+    <select id="fuelName" name="fuelName" th:field="*{fuelName}" >
+    <option value="">Select</option>
+    <option value="Petrol">Petrol</option>
+    <option value="Disel">Disel</option>
+    <option value="Gas">Gas</option>
+    </select> 
+  </div>
+  <br>
+ <div class="form-group">
+    <label for="fuelQuantity" style="color: green;">Fuel Quantity</label>
+    <input type="number"  id="fuelQuantity" name="fuelQuantity" th:field="*{fuelQuantity}" />
+  </div>
+  
+  <br>
+  <button type="submit" class="btn btn-primary">Order</button>
+  <p th:text="${msg}">
+  <p th:text="${order}">
+</form>
+</body>
+</html>
